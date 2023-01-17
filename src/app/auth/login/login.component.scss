@@ -1,0 +1,22 @@
+.login {
+
+    display: flex;
+    flex-direction: column;
+
+    .rowPanel {
+        display: flex;
+        margin-bottom: 10px;
+        flex-direction: column;
+    }
+
+    span {
+        padding: 10px 0px 5px 0px;
+        font-size: 1rem;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+}

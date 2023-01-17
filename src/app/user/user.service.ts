@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { map } from 'rxjs'
+import { catchError, map, of } from 'rxjs'
 import { User } from './user.dto'
+import { Router } from '@angular/router'
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +11,7 @@ export class UserService {
 
     private static readonly URL: string = "http://localhost:3000/users"
 
-    constructor(private readonly http: HttpClient) {}
+    constructor(private readonly http: HttpClient, private router: Router) {}
 
     private getOptions(token: string) {
         return {
@@ -24,7 +25,11 @@ export class UserService {
             this.getOptions(
                 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlVlZHNvbiBSZWlzIiwidXNlcm5hbWUiOiJ1ZWRzb25yZWlzIiwiaWF0IjoxNjczOTAxNDQ2LCJleHAiOjE2NzM5MDI2NDZ9.pDBpZFRE5YcKOi-4e2crtlhO7ZkQJLeD1ez6jSYC61c'
             )
-        )
+        ).pipe(catchError(error => {
+            console.error('Error on login: ', error)
+            this.router.navigate(['login'])
+            return of([])
+        }))
     }
 
 }
