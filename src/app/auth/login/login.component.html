@@ -1,15 +1,17 @@
 <div class="login">
 
-    <h2>Entrar</h2>
+    <h2>Autenticar</h2>
 
     <div class="rowPanel">
         <span>Nome de usuário: </span>
-        <input type="text" />
+        <input type="text" placeholder="uedsonreis" [(ngModel)]="username" />
     </div>
     
     <div class="rowPanel">
         <span>Senha: </span>
-        <input type="password" />
+        <input type="password" placeholder="123456" [(ngModel)]="password" />
     </div>
+
+    <button class="enter" (click)="signIn()">Entrar</button>
 
 </div>

@@ -1,5 +1,6 @@
 .login {
 
+    width: 30rem;
     display: flex;
     flex-direction: column;
 
@@ -10,13 +11,21 @@
     }
 
     span {
-        padding: 10px 0px 5px 0px;
         font-size: 1rem;
+        padding: 10px 0px 5px 0px;
     }
 
     input {
         padding: 10px;
         font-size: 1rem;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 40px;
+        font-weight: bold;
     }
 
 }

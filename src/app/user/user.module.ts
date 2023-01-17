@@ -1,4 +1,6 @@
+import { MatIconModule } from '@angular/material/icon'
 import { NgModule } from '@angular/core'
+import { FormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
 
 import { UserComponent } from './user.component'
@@ -8,7 +10,9 @@ import { UserComponent } from './user.component'
         UserComponent
     ],
     imports: [
-        BrowserModule
+        FormsModule,
+        BrowserModule,
+        MatIconModule,
     ]
 })
 export class UserModule {}

@@ -1,10 +1,62 @@
 .user {
 
-    table {
+    width: 80vw;
+    display: flex;
+    min-width: 30rem;
+    max-width: 60rem;
+    flex-direction: column;
+
+    .add-user {
+        width: 100%;
+        text-align: right;
+    }
+
+    .user-list {
+        
+        width: 100%;
+        font-size: 1rem;
+
         td, th {
             padding: 10px;
+            text-align: center;
             border-bottom: 2px solid gray;
         }
+
+        mat-icon {
+            cursor: pointer;
+        }
+
+        mat-icon + mat-icon {
+            color: red;
+            margin-left: 5px;
+        }
+    }
+
+    .add-user {
+
+        margin-bottom: 20px;
+
+        button {
+            width: 150px;
+            padding: 10px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        .newUserPanel {
+            display: flex;
+            margin-top: 10px;
+            justify-content: space-between;
+            span {
+                font-size: 1rem;
+                margin-left: 15px;
+                margin-right: 5px;
+            }
+            input {
+                padding: 5px;
+            }
+        }
+
     }
 
 }

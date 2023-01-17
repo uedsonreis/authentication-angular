@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+import { User } from '../user/user.dto'
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthService {
     constructor(private readonly http: HttpClient) {}
 
     public login(username: string, password: string) {
-        return this.http.post<{ token: string }>(AuthService.URL, { username, password })
+        return this.http.post<User>(AuthService.URL, { username, password })
     }
 
 }

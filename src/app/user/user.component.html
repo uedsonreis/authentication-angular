@@ -1,13 +1,39 @@
 <div class="user">
 
-    <p>Lista de Usuários</p>
+    <h2>Lista de Usuários</h2>
 
-    <table>
+    <div class="add-user">
+        
+        <button *ngIf="showNewUserPanel" (click)="cancel()">Cancelar</button>
+        <button *ngIf="showNewUserPanel" (click)="saveUser()">Salvar Usuário</button>
+        <button *ngIf="!showNewUserPanel" (click)="enableNewUserPanel()">Add Novo Usuário</button>
+        
+        <div *ngIf="showNewUserPanel" class="newUserPanel">
+            <div>
+                <span>ID: {{ editUser.id }}</span>
+            </div>
+            <div>
+                <span>Nome:</span> <input type="text" [(ngModel)]="editUser.name" />
+            </div>
+            <div>
+                <span>Login:</span> <input type="text" [(ngModel)]="editUser.username" [disabled]="editUser.id > 0" />
+            </div>
+            <div>
+                <span>Senha:</span> <input type="password" [(ngModel)]="editUser.password" [disabled]="editUser.id > 0" />
+            </div>
+        </div>
+    </div>
+
+    <table class="user-list">
         <tr>
-            <th>ID</th> <th>NOME</th> <th>LOGIN</th>
+            <th>ID</th> <th>NOME</th> <th>LOGIN</th> <th>AÇÕES</th>
         </tr>
         <tr *ngFor="let user of userList">
             <td>{{ user.id }}</td> <td>{{ user.name }}</td> <td>{{ user.username }}</td>
+            <td>
+                <mat-icon aria-hidden="true" aria-label="Editar" fontIcon="edit" (click)="enableNewUserPanel(user)"></mat-icon>
+                <mat-icon aria-hidden="false" aria-label="Remover" fontIcon="delete" (click)="remove(user.id)"></mat-icon>
+            </td>
         </tr>
     </table>
 </div>
